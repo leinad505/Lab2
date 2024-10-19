@@ -9,7 +9,7 @@
 
     <div class="container">
         <h1>Licznik znaków</h1>
-        <textarea id="text" rows="10" placeholder="Wpisz tekst..."></textarea>
+        <textarea id="text" rows="1" placeholder="Wpisz tekst..."></textarea>
         <p>Licznik wpisanych znaków: <span id="char-count">0</span></p>
     </div>
 
@@ -17,10 +17,17 @@
         let textInput = document.getElementById('text');
         let charCount = document.getElementById('char-count');
 
+        function autoResize() {
+            textInput.style.height = 'auto';
+            textInput.style.height = textInput.scrollHeight + 'px';
+        };
+
         textInput.addEventListener('input', () => {
         charCount.textContent = textInput.value.length;
-        });
 
+        autoResize();
+        });
+        autoResize();
     </script>
 </body>
 </html>
